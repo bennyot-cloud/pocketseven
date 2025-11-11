@@ -4,57 +4,52 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Orizis-International- | Global Trading & Cross-Border Growth</title>
-  <meta name="description" content="Orizis-International- is the global trading and deal-making arm of Orizis Group. We source, import, and export products worldwide, connect investors with African ventures, and unlock government-level partnerships." />
+  <meta name="description" content="Orizis-International- (part of Orizis Group) sources, imports, and exports products worldwide, unlocks government-level partnerships, and connects investors with ventures across Africa." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b0e14; --card:#121826; --muted:#9aa4b2; --brand:#2dd4bf; --brand-2:#60a5fa; --ink:#e5e7eb;
+      --bg:#0b0e14; --panel:#111827; --muted:#9aa4b2; --ink:#e5e7eb;
+      --brand:#2dd4bf; --brand2:#60a5fa; --line:rgba(255,255,255,.08);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#0b0e14 0%, #0f172a 100%);color:var(--ink)}
+    html,body{margin:0;background:linear-gradient(180deg,#0b0e14,#0f172a);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
-    .container{max-width:1200px;margin:0 auto;padding:24px}
-    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(8px);background:rgba(11,14,20,.7);border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
-    nav{display:flex;align-items:center;justify-content:space-between}
-    .logo{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.4px}
-    .logo-mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 6px 20px rgba(45,212,191,.35)}
-    .nav-links a{opacity:.85;margin-left:22px;font-weight:600}
-    .cta{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#0b0e14;font-weight:800}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:56px 0}
-    .hero h1{font-size:48px;line-height:1.08;margin:0 0 16px}
-    .hero p{color:var(--muted);font-size:18px}
-    .hero-card{border-radius:24px;overflow:hidden}
-    .hero-media{display:block;width:100%;height:auto;border-radius:24px;border:1px solid rgba(255,255,255,.08)}
-    .hero-strip{display:flex;gap:24px;flex-wrap:wrap;padding:16px 0;color:#d1d5db;font-size:14px}
-    .badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
-    .section{padding:56px 0}
+    .container{max-width:1200px;margin:0 auto;padding:20px}
+    header{position:sticky;top:0;z-index:40;backdrop-filter:saturate(140%) blur(8px);background:rgba(11,14,20,.6);border-bottom:1px solid var(--line)}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo-mark{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:0 6px 16px rgba(45,212,191,.35)}
+    .nav-links a{margin-left:18px;opacity:.9;font-weight:600}
+    .cta{padding:10px 16px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#061016;font-weight:800}
     .kicker{color:var(--brand);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
-    h2{font-size:34px;margin:8px 0 14px}
-    .grid{display:grid;gap:18px}
-    .grid.col-3{grid-template-columns:repeat(3,1fr)}
-    .grid.col-2{grid-template-columns:repeat(2,1fr)}
-    @media(max-width:980px){.hero{grid-template-columns:1fr}.grid.col-3{grid-template-columns:1fr}.grid.col-2{grid-template-columns:1fr}}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:20px}
-    .card h3{margin:4px 0 8px}
-    .muted{color:var(--muted)}
-    .pill{display:inline-block;border:1px solid rgba(255,255,255,.14);padding:6px 10px;border-radius:999px;font-size:12px;color:#cbd5e1}
-    .stack{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-    .list{display:grid;gap:10px;margin-top:12px}
-    .list li{display:flex;gap:10px}
-    .dot{width:8px;height:8px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand-2));margin-top:9px}
-    footer{padding:44px 0;border-top:1px solid rgba(255,255,255,.08);color:#9aa4b2}
-    .brand-grad{background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-    /* flat image in \"How we work\" (no frame) */
-    .flat-media{display:block;width:100%;height:auto;border-radius:24px;border:1px solid rgba(255,255,255,.08)}
+    h1{font-size:44px;line-height:1.08;margin:8px 0 10px}
+    h2{font-size:32px;margin:6px 0 12px}
+    p{color:var(--muted)}
+    .section{padding:54px 0}
+    .grid{display:grid;gap:22px}
+    .col-2{grid-template-columns:1.1fr .9fr}
+    .col-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:980px){.col-2,.col-3{grid-template-columns:1fr}}
+    .pill{display:inline-block;border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-size:14px;color:#cbd5e1}
+    .stack{display:flex;gap:10px;flex-wrap:wrap}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-img,.plain-img{width:100%;height:auto;border-radius:20px;display:block;border:1px solid var(--line);background:#0b1220;object-fit:cover}
+    .hero{padding:56px 0}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:18px;padding:18px}
+    footer{padding:36px 0;border-top:1px solid var(--line);color:#9aa4b2}
+    .brand-grad{background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <nav>
-        <div class="logo"><span class="logo-mark"></span> Orizis-International-</div>
+        <div class="logo">
+          <span class="logo-mark"></span>
+          <span>Orizis-International-</span>
+        </div>
         <div class="nav-links">
           <a href="#about">About</a>
           <a href="#capabilities">Capabilities</a>
@@ -70,20 +65,31 @@
   <main>
     <!-- HERO -->
     <section class="container hero">
-      <div>
-        <div class="kicker">Part of Orizis Group</div>
-        <h1>Global Trading, Government-Level Access, and <span class="brand-grad">Cross-Border Growth</span></h1>
-        <p>Orizis-International- is the global trading and deal-making arm of Orizis Group. We source, import, and export products to and from any market, build the impossible connections between suppliers, buyers, and governments, and match investors with high-potential ventures across Africa.</p>
-        <div class="hero-strip">
-          <span class="badge">Import & Export</span>
-          <span class="badge">Government & Regulatory Liaison</span>
-          <span class="badge">Investor–Venture Matching</span>
-          <span class="badge">Cross-Border Payments Insight</span>
+      <div class="grid col-2" style="align-items:center">
+        <div>
+          <div class="kicker">Part of Orizis Group</div>
+          <h1>Global Trading, Government-Level Access, and <span class="brand-grad">Cross-Border Growth</span></h1>
+          <p>Orizis-International- is the global trading and deal-making arm of Orizis Group. We source, import, and export products to and from any market, build the impossible connections between suppliers, buyers, and governments, and match investors with high-potential ventures across Africa.</p>
+          <div class="btn-row">
+            <a href="#contact" class="cta">Tell us what you need</a>
+            <a href="#capabilities" class="pill">Explore our capabilities</a>
+          </div>
+          <div class="stack" style="margin-top:14px">
+            <span class="pill">Import & Export</span>
+            <span class="pill">Government & Regulatory Liaison</span>
+            <span class="pill">Investor–Venture Matching</span>
+            <span class="pill">Cross-Border Payments Insight</span>
+          </div>
         </div>
-      </div>
-      <div class="hero-card">
-        <!-- HERO IMAGE (Style B) -->
-        <img class="hero-media" alt="Global skyline and trade lanes" src="https://images.unsplash.com/photo-1587683431921-3e85dfc6f6d2?auto=format&fit=crop&w=1600&q=80">
+        <div>
+          <!-- Hero image, “Style B” city/trade lanes -->
+          <img
+            class="hero-img"
+            src="https://images.unsplash.com/photo-1587683431921-3e85dfc6f6d2?auto=format&fit=crop&w=1600&q=80"
+            alt="Global skyline and trade lanes"
+            loading="lazy"
+          />
+        </div>
       </div>
     </section>
 
@@ -93,16 +99,21 @@
         <div>
           <div class="kicker">Who we are</div>
           <h2>Strategic Growth Partners connecting trade, governments, and capital</h2>
-          <p class="muted">Born inside Orizis Group, we combine practical trading expertise with a deep understanding of digital platforms in emerging markets. Our team operates end-to-end, from product sourcing and compliance to logistics and market entry, while opening doors at ministerial and agency levels where needed.</p>
-          <ul class="list">
-            <li><span class="dot"></span><span>Global Trading (import/export) across commodities, food, consumer goods, and industrial equipment.</span></li>
-            <li><span class="dot"></span><span>Government-level access: permits, standards, concessions, tenders, and PPP exploration.</span></li>
-            <li><span class="dot"></span><span>Investors ↔ ventures: connecting capital with vetted opportunities in Africa.</span></li>
-            <li><span class="dot"></span><span>Group leverage: insights from Orizis platforms in fintech and digital commerce.</span></li>
+          <p>Born inside Orizis Group, we combine practical trading expertise with a deep understanding of digital platforms in emerging markets. Our team operates end-to-end, from product sourcing and compliance to logistics and market entry, while opening doors at ministerial and agency levels where needed.</p>
+          <ul style="margin:12px 0 0 0; padding-left:18px; color:#cbd5e1; line-height:1.6">
+            <li>Global Trading (import/export) across commodities, food, consumer goods, industrial equipment, and more</li>
+            <li>Government-level access: permits, standards, concessions, tenders, and PPP exploration</li>
+            <li>Investors ↔ ventures: connecting capital with vetted opportunities in Africa</li>
+            <li>Group leverage: insights from fintech and web products within Orizis Group</li>
           </ul>
         </div>
         <div>
-          <img class="flat-media" src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1600&q=80" alt="Global logistics hub with containers and cranes">
+          <img
+            class="plain-img"
+            src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1600&q=80"
+            alt="Global logistics hub with containers and cranes"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
@@ -114,7 +125,7 @@
       <div class="grid col-3">
         <div class="card">
           <h3>Global Trading</h3>
-          <p class="muted">Sourcing, import/export, and door-to-door logistics. We structure transactions, secure supply, and build resilient routes into and out of Africa, the Middle East, and beyond.</p>
+          <p>Sourcing, import/export, and door-to-door logistics. We structure transactions, secure supply, and build resilient routes into and out of Africa, the Middle East, and beyond.</p>
           <div class="stack">
             <span class="pill">Supplier discovery</span>
             <span class="pill">Quality & compliance</span>
@@ -123,7 +134,7 @@
         </div>
         <div class="card">
           <h3>Government & Regulatory</h3>
-          <p class="muted">Institutional relationships to align projects with national priorities. From import approvals to national tenders and concessions, we help move decisions forward.</p>
+          <p>Institutional relationships to align projects with national priorities. From import approvals to tenders and concessions, we help move decisions forward.</p>
           <div class="stack">
             <span class="pill">Ministry access</span>
             <span class="pill">Standards & permits</span>
@@ -132,16 +143,16 @@
         </div>
         <div class="card">
           <h3>Investor–Venture Matching</h3>
-          <p class="muted">We curate opportunities and connect investors to credible founders and operators. Our diligence focuses on execution capacity, regulatory fit, and route-to-market.</p>
+          <p>We curate opportunities and connect investors to credible founders and operators. Our diligence focuses on execution capacity, regulatory fit, and route-to-market.</p>
           <div class="stack">
             <span class="pill">Pipeline curation</span>
             <span class="pill">Due diligence</span>
-            <span class="pill">Term sheet support</span>
+            <span class="pill">Term-sheet support</span>
           </div>
         </div>
         <div class="card">
           <h3>Market Entry & Distribution</h3>
-          <p class="muted">Local entity setup, distributor mapping, and multi-channel go-to-market. We assemble the right mix of retail, wholesale, and institutional buyers.</p>
+          <p>Local entity setup, distributor mapping, and multi-channel go-to-market. We assemble the right mix of retail, wholesale, and institutional buyers.</p>
           <div class="stack">
             <span class="pill">Entity setup</span>
             <span class="pill">Distributor network</span>
@@ -150,7 +161,7 @@
         </div>
         <div class="card">
           <h3>Trade Finance Enablement</h3>
-          <p class="muted">We help align instruments such as SBLC, LC, and escrow, and coordinate with top-tier banks to de-risk execution for both sides.</p>
+          <p>Aligning LC, SBLC, and escrow with top-tier banks to de-risk execution on both sides of the transaction.</p>
           <div class="stack">
             <span class="pill">LC / SBLC</span>
             <span class="pill">Escrow</span>
@@ -159,7 +170,7 @@
         </div>
         <div class="card">
           <h3>Digital Advantage</h3>
-          <p class="muted">As part of Orizis Group, we draw on fintech and web expertise to inform payment flows, compliance, and user experience in emerging markets.</p>
+          <p>As part of Orizis Group, we draw on fintech and web expertise to inform payment flows, compliance, and user experience in emerging markets.</p>
           <div class="stack">
             <span class="pill">Fintech insights</span>
             <span class="pill">Reg-tech</span>
@@ -174,12 +185,12 @@
       <div class="kicker">Where we operate</div>
       <h2>Sectors & categories</h2>
       <div class="grid col-3">
-        <div class="card"><h3>Food & Agriculture</h3><p class="muted">Protein, grains, edible oils, ingredients, and fresh produce. Cold-chain and shelf-stable solutions.</p></div>
-        <div class="card"><h3>Consumer & Retail</h3><p class="muted">Private-label sourcing, household and personal care, general merchandise, and e-commerce enablement.</p></div>
-        <div class="card"><h3>Industrial & Infrastructure</h3><p class="muted">Machinery, packaging, energy solutions, and capital equipment for public and private projects.</p></div>
-        <div class="card"><h3>Health & OTC</h3><p class="muted">Regulated categories with compliant import pathways and national distribution partners.</p></div>
-        <div class="card"><h3>Technology</h3><p class="muted">Digital platforms, payments insight, and marketplace playbooks from the Orizis ecosystem.</p></div>
-        <div class="card"><h3>Special Projects</h3><p class="muted">Government initiatives, concession models, and multi-stakeholder partnerships that require bespoke structuring.</p></div>
+        <div class="card"><h3>Food & Agriculture</h3><p>Protein, grains, edible oils, ingredients, and fresh produce. Cold-chain and shelf-stable solutions.</p></div>
+        <div class="card"><h3>Consumer & Retail</h3><p>Private-label sourcing, household and personal care, general merchandise, and e-commerce enablement.</p></div>
+        <div class="card"><h3>Industrial & Infrastructure</h3><p>Machinery, packaging, energy solutions, and capital equipment for public and private projects.</p></div>
+        <div class="card"><h3>Health & OTC</h3><p>Regulated categories with compliant import pathways and national distribution partners.</p></div>
+        <div class="card"><h3>Technology</h3><p>Digital platforms, payments insight, and marketplace playbooks from the Orizis ecosystem.</p></div>
+        <div class="card"><h3>Special Projects</h3><p>Government initiatives, concession models, and multi-stakeholder partnerships that require bespoke structuring.</p></div>
       </div>
     </section>
 
@@ -190,17 +201,22 @@
       <div class="grid col-2" style="align-items:center">
         <div class="card">
           <h3>1) Brief & Feasibility</h3>
-          <p class="muted">Define the need (product, volume, target markets), verify compliance rules, and confirm financing instruments.</p>
+          <p>Define the need (product, volume, target markets), verify compliance rules, and confirm financing instruments.</p>
           <h3>2) Sourcing & Structuring</h3>
-          <p class="muted">Source qualified suppliers/buyers, align specs and incoterms, shape a de-risked commercial structure.</p>
+          <p>Source qualified suppliers/buyers, align specs and incoterms, shape a de-risked commercial structure.</p>
           <h3>3) Approvals & Logistics</h3>
-          <p class="muted">Secure permits, finalize contracts, and orchestrate shipping, insurance, and last-mile delivery.</p>
+          <p>Secure permits, finalize contracts, and orchestrate shipping, insurance, and last-mile delivery.</p>
           <h3>4) Execution & Scale</h3>
-          <p class="muted">Monitor fulfillment, optimize costs, and expand from pilot to steady-state programs.</p>
+          <p>Monitor fulfillment, optimize costs, and expand from pilot to steady-state programs.</p>
         </div>
         <div>
-          <!-- Flat image, no frame -->
-          <img class="flat-media" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80" alt="Air cargo and containers illustrating global trade">
+          <!-- Plain image (no frame) -->
+          <img
+            class="plain-img"
+            src="https://images.unsplash.com/photo-1586521995568-39b5b94c12a9?auto=format&fit=crop&w=1600&q=80"
+            alt="Air cargo and containers illustrating global trade"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
@@ -209,8 +225,8 @@
     <section id="group" class="section container">
       <div class="kicker">Orizis Group</div>
       <h2>A trading engine backed by a technology ecosystem</h2>
-      <p class="muted">Orizis Group backs innovative platforms spanning e-commerce enablement, job marketplaces, website building, trading tools, and consumer digital services. This ecosystem gives Orizis-International- unique market intelligence in payments, user acquisition, and digital operations across Africa and other emerging markets.</p>
-      <div class="stack">
+      <p>Orizis Group backs innovative platforms spanning e-commerce enablement, job marketplaces, website building, trading tools, and consumer digital services. This ecosystem gives Orizis-International- unique market intelligence in payments, user acquisition, and digital operations across Africa and other emerging markets.</p>
+      <div class="stack" style="margin-top:10px">
         <span class="pill">E-commerce enablement</span>
         <span class="pill">Digital marketplaces</span>
         <span class="pill">Fintech & payments insight</span>
@@ -221,20 +237,19 @@
     <section id="contact" class="section container">
       <div class="kicker">Let’s talk</div>
       <h2>Bring us your challenge</h2>
-      <p class="muted">Tell us what you need to import or export, where you want to build a presence, or which opportunity you want to finance. We will respond quickly with next steps.</p>
       <div class="grid col-2">
         <div class="card">
           <h3>Start a conversation</h3>
-          <p class="muted">Email: <a href="mailto:info@orizis-international.com">info@orizis-international.com</a><br/>Phone: <a href="tel:+000000000">+00 0000 0000</a></p>
-          <p class="muted">Prefer WhatsApp or Telegram? Add a note and we will follow up on your channel of choice.</p>
+          <p>Email: <a href="mailto:info@orizis-international.com">info@orizis-international.com</a><br/>Phone: <a href="tel:+000000000">+00 0000 0000</a></p>
+          <p>Prefer WhatsApp or Telegram? Add a note and we will follow up on your channel of choice.</p>
         </div>
         <div class="card">
           <h3>What to include</h3>
-          <ul class="list">
-            <li><span class="dot"></span><span>Product and technical spec (or service type)</span></li>
-            <li><span class="dot"></span><span>Target incoterms and volumes</span></li>
-            <li><span class="dot"></span><span>Origin/destination and timelines</span></li>
-            <li><span class="dot"></span><span>Financing instrument preference (LC/SBLC/escrow)</span></li>
+          <ul style="margin:8px 0 0 0; padding-left:18px; color:#cbd5e1; line-height:1.6">
+            <li>Product and technical spec (or service type)</li>
+            <li>Target Incoterms and volumes</li>
+            <li>Origin/destination and timelines</li>
+            <li>Financing instrument preference (LC / SBLC / escrow)</li>
           </ul>
         </div>
       </div>
@@ -242,14 +257,14 @@
   </main>
 
   <footer>
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div>© <span id="year"></span> Orizis-International-, part of Orizis Group.</div>
-        <div>Trade responsibly. We comply with all applicable export controls and sanctions.</div>
-      </div>
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Orizis-International-, part of Orizis Group.</div>
+      <div>Trade responsibly. We comply with all applicable export controls and sanctions.</div>
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
