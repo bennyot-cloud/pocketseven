@@ -1,212 +1,367 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Orizis-International- | Global Trading & Cross‑Border Growth</title>
-  <meta name="description" content="Orizis-International- (part of Orizis Group) sources, imports, and exports products worldwide, connects investors with African ventures, and opens government‑level doors to move complex deals forward." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#0b0e14;--muted:#9aa4b2;--brand:#2dd4bf;--brand2:#60a5fa;--ink:#e5e7eb}
-    *{box-sizing:border-box}
-    html,body{margin:0;height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#0b0e14 0%,#0f172a 100%);color:var(--ink)}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1200px;margin:0 auto;padding:24px}
-    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(8px);background:rgba(11,14,20,.7);border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
-    nav{display:flex;align-items:center;justify-content:space-between}
-    .logo{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.4px}
-    .logo-mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:0 6px 20px rgba(45,212,191,.35)}
-    .nav-links a{opacity:.85;margin-left:22px;font-weight:600}
-    .cta{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0b0e14;font-weight:800}
-    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;padding:56px 0}
-    .hero h1{font-size:48px;line-height:1.08;margin:0 0 16px}
-    .hero p{color:var(--muted);font-size:18px}
-    .badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
-    .kicker{color:var(--brand);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
-    .cta-bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .section{padding:56px 0}
-    h2{font-size:34px;margin:8px 0 14px}
-    .grid{display:grid;gap:18px}
-    .grid.col-3{grid-template-columns:repeat(3,1fr)}
-    .grid.col-2{grid-template-columns:repeat(2,1fr)}
-    @media(max-width:980px){.hero{grid-template-columns:1fr}.grid.col-3{grid-template-columns:1fr}.grid.col-2{grid-template-columns:1fr}}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:20px}
-    .muted{color:var(--muted)}
-    .pill{display:inline-block;border:1px solid rgba(255,255,255,.14);padding:6px 10px;border-radius:999px;font-size:12px;color:#cbd5e1}
-    .stack{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-    /* Image helpers: ensures no stretching and only one visual element */
-    .img-wrap{position:relative;aspect-ratio:16/10;border-radius:24px;overflow:hidden}
-    .img-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-    footer{padding:44px 0;border-top:1px solid rgba(255,255,255,.08);color:#9aa4b2}
-    .brand-grad{background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocketSeven - חווית הפוקר האולטימטיבית</title>
+    <style>
+        :root {
+            --primary-color: #ffd700; /* זהב */
+            --secondary-color: #1a237e; /* כחול עמוק */
+            --bg-dark: #0f1219;
+            --text-light: #ffffff;
+            --text-gray: #b0b0b0;
+            --btn-hover: #ffea00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header / Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(15, 18, 25, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .download-btn-nav {
+            background: var(--primary-color);
+            color: var(--bg-dark);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .download-btn-nav:hover {
+            background: var(--btn-hover);
+            transform: scale(1.05);
+            color: var(--bg-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #2c3e50 0%, var(--bg-dark) 70%);
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease-out 1s forwards;
+            opacity: 0;
+        }
+
+        .store-btn {
+            background: #fff;
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
+
+        .store-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 5%;
+            background: #151922;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            transition: background 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Showcase Section (Phone Mockup) */
+        .showcase {
+            padding: 100px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .showcase-text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+
+        .showcase-text h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .phone-mockup {
+            width: 300px;
+            height: 600px;
+            background: #000;
+            border-radius: 40px;
+            border: 8px solid #333;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+        }
+
+        .phone-screen {
+            width: 90%;
+            height: 95%;
+            background: #222;
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Placeholder for app screenshot */
+        .app-screen-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1a237e, #000);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #050608;
+            padding: 50px 5%;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            margin: 0 15px;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Mobile menu hidden for simplicity */
+            .showcase { flex-direction: column-reverse; gap: 50px; text-align: center; }
+            .showcase-text { margin: 0 auto; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo"><span class="logo-mark"></span> Orizis-International-</div>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#capabilities">Capabilities</a>
-          <a href="#sectors">Sectors</a>
-          <a href="#approach">How We Work</a>
-          <a href="#group">Orizis Group</a>
-          <a href="#contact" class="cta">Start a Conversation</a>
-        </div>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <!-- HERO uses your uploaded hero.jpg (repo root) -->
-    <section class="container hero">
-      <div>
-        <div class="kicker">Part of Orizis Group</div>
-        <h1>Global Trading, Government‑Level Access, and <span class="brand-grad">Cross‑Border Growth</span></h1>
-        <p>Orizis-International- is the global trading and deal‑making arm of Orizis Group. We source, import, and export products to and from any market, build the impossible connections between suppliers, buyers, and governments, and match investors with high‑potential ventures across Africa.</p>
-        <div class="cta-bar">
-          <a href="#contact" class="cta">Tell us what you need</a>
-          <a href="#capabilities" class="pill">Explore our capabilities</a>
+    <header>
+        <div class="logo">PocketSeven</div>
+        <nav>
+            <ul>
+                <li><a href="#features">פיצ'רים</a></li>
+                <li><a href="#about">אודות</a></li>
+                <li><a href="#support">תמיכה</a></li>
+            </ul>
+        </nav>
+        <a href="#download" class="download-btn-nav">הורד עכשיו</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>שחקו פוקר עם חברים<br>בכל זמן, בכל מקום</h1>
+            <p>הצטרפו למועדונים פרטיים, נהלו משחקים בזמן אמת ותהנו מחווית משחק מתקדמת וחלקה.</p>
+            <div class="cta-buttons" id="download">
+                <a href="#" class="store-btn">
+                    <span>App Store</span>
+                </a>
+                <a href="#" class="store-btn">
+                    <span>Google Play</span>
+                </a>
+            </div>
         </div>
-        <div class="stack" style="margin-top:14px">
-          <span class="badge">Import & Export</span>
-          <span class="badge">Government & Regulatory Liaison</span>
-          <span class="badge">Investor–Venture Matching</span>
-          <span class="badge">Cross‑Border Payments Insight</span>
-        </div>
-      </div>
-      <div class="img-wrap">
-        <img src="hero.jpg" alt="Orizis International hero image" />
-      </div>
     </section>
 
-    <!-- ABOUT with the KIDS image you liked (kept from Unsplash) -->
-    <section id="about" class="section container">
-      <div class="grid col-2" style="align-items:center">
-        <div>
-          <div class="kicker">Who we are</div>
-          <h2>Strategic Growth Partners connecting trade, governments, and capital</h2>
-          <p class="muted">Born inside Orizis Group, we combine practical trading expertise with a deep understanding of digital platforms in emerging markets. Our team operates end‑to‑end, from product sourcing and compliance to logistics and market entry, while opening doors at ministerial and agency levels where needed.</p>
-          <ul class="muted">
-            <li>Global Trading (import/export) across commodities, food, consumer goods, industrial equipment, and more</li>
-            <li>Government‑level access: permits, standards, concessions, tenders, and PPP exploration</li>
-            <li>Investors ↔ ventures: connecting capital with vetted opportunities in Africa</li>
-            <li>Group leverage: insights from fintech and web products within Orizis Group</li>
-          </ul>
+    <section id="features" class="features">
+        <h2 class="section-title">למה לבחור ב-PocketSeven?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">♠️</span>
+                <h3>מועדונים פרטיים</h3>
+                <p>צרו מועדון משלכם, הזמינו חברים ושחקו בשולחנות סגורים עם חוקים שאתם קובעים.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>סטטיסטיקות מתקדמות</h3>
+                <p>נתחו את היד שלכם ושל היריבים עם מערכת ניתוח נתונים מקצועית בזמן אמת.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3>משחק הוגן ומאובטח</h3>
+                <p>מנגנון RNG מאושר ומערכות הגנה מתקדמות למניעת רמאויות.</p>
+            </div>
         </div>
-        <div class="img-wrap" style="aspect-ratio: 16/9;">
-          <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1600&q=80" alt="Community and opportunity across Africa" />
-        </div>
-      </div>
     </section>
 
-    <!-- CAPABILITIES -->
-    <section id="capabilities" class="section container">
-      <div class="kicker">What we do</div>
-      <h2>Capabilities that turn complex cross‑border ideas into executed deals</h2>
-      <div class="grid col-3">
-        <div class="card">
-          <h3>Global Trading</h3>
-          <p class="muted">Sourcing, import/export, and door‑to‑door logistics. We structure transactions, secure supply, and build resilient routes into and out of Africa, the Middle East, and beyond.</p>
-          <div class="stack"><span class="pill">Supplier discovery</span><span class="pill">Quality & compliance</span><span class="pill">Customs & duties</span></div>
+    <section class="showcase">
+        <div class="phone-mockup">
+            <div class="phone-screen">
+                <div class="app-screen-placeholder">
+                    <h3>Game Lobby</h3>
+                    <p>[Screen Placeholder]</p>
+                    <div style="margin-top:20px; font-size: 2rem;">🃏</div>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <h3>Government & Regulatory</h3>
-          <p class="muted">Institutional relationships to align projects with national priorities. From import approvals to national tenders and concessions, we help move decisions forward.</p>
-          <div class="stack"><span class="pill">Ministry access</span><span class="pill">Standards & permits</span><span class="pill">PPP & tenders</span></div>
+        <div class="showcase-text">
+            <h2>ממשק משתמש<br>שתוכנן למקצוענים</h2>
+            <p>בנינו את הממשק כך שתוכלו להתרכז במה שחשוב באמת - הקלפים. עיצוב נקי, כפתורים נוחים ומחוות מגע אינטואיטיביות.</p>
         </div>
-        <div class="card">
-          <h3>Investor–Venture Matching</h3>
-          <p class="muted">We curate opportunities and connect investors to credible founders and operators. Our diligence focuses on execution capacity, regulatory fit, and route‑to‑market.</p>
-          <div class="stack"><span class="pill">Pipeline curation</span><span class="pill">Due diligence</span><span class="pill">Term sheet support</span></div>
-        </div>
-        <div class="card">
-          <h3>Market Entry & Distribution</h3>
-          <p class="muted">Local entity setup, distributor mapping, and multi‑channel go‑to‑market. We assemble the right mix of retail, wholesale, and institutional buyers.</p>
-          <div class="stack"><span class="pill">Entity setup</span><span class="pill">Distributor network</span><span class="pill">Retail & B2B</span></div>
-        </div>
-        <div class="card">
-          <h3>Trade Finance Enablement</h3>
-          <p class="muted">We help align instruments such as SBLC, LC, and escrow, and coordinate with top‑tier banks to de‑risk execution for both sides.</p>
-          <div class="stack"><span class="pill">LC / SBLC</span><span class="pill">Escrow</span><span class="pill">Risk management</span></div>
-        </div>
-        <div class="card">
-          <h3>Digital Advantage</h3>
-          <p class="muted">As part of Orizis Group, we draw on fintech and web expertise to inform payment flows, compliance, and user experience in emerging markets.</p>
-          <div class="stack"><span class="pill">Fintech insights</span><span class="pill">Reg‑tech</span><span class="pill">Data‑driven ops</span></div>
-        </div>
-      </div>
     </section>
 
-    <!-- HOW WE WORK uses your uploaded how-we-work.jpg (repo root) -->
-    <section id="approach" class="section container">
-      <div class="kicker">How we work</div>
-      <h2>From intent to signed, shipped, and settled</h2>
-      <div class="grid col-2" style="align-items:center">
-        <div class="card">
-          <h3>1) Brief & Feasibility</h3>
-          <p class="muted">Define the need (product, volume, target markets), verify compliance rules, and confirm financing instruments.</p>
-          <h3>2) Sourcing & Structuring</h3>
-          <p class="muted">Source qualified suppliers/buyers, align specs and incoterms, shape a de‑risked commercial structure.</p>
-          <h3>3) Approvals & Logistics</h3>
-          <p class="muted">Secure permits, finalize contracts, and orchestrate shipping, insurance, and last‑mile delivery.</p>
-          <h3>4) Execution & Scale</h3>
-          <p class="muted">Monitor fulfillment, optimize costs, and expand from pilot to steady‑state programs.</p>
+    <footer>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
         </div>
-        <div class="img-wrap">
-          <img src="how-we-work.jpg" alt="How we work" />
-        </div>
-      </div>
-    </section>
+        <p class="copyright">© 2024 PocketSeven. כל הזכויות שמורות. האתר לא קשור ל-Pokerrrr 2 או כל מותג אחר.</p>
+    </footer>
 
-    <!-- GROUP -->
-    <section id="group" class="section container">
-      <div class="kicker">Orizis Group</div>
-      <h2>A trading engine backed by a technology ecosystem</h2>
-      <p class="muted">Orizis Group backs innovative platforms spanning e‑commerce enablement, job marketplaces, website building, trading tools, and consumer digital services. This ecosystem gives Orizis-International- unique market intelligence in payments, user acquisition, and digital operations across Africa and other emerging markets.</p>
-      <div class="stack">
-        <span class="pill">E‑commerce enablement</span>
-        <span class="pill">Digital marketplaces</span>
-        <span class="pill">Fintech & payments insight</span>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section container">
-      <div class="kicker">Let’s talk</div>
-      <h2>Bring us your challenge</h2>
-      <p class="muted">Tell us what you need to import or export, where you want to build a presence, or which opportunity you want to finance. We will respond quickly with next steps.</p>
-      <div class="grid col-2">
-        <div class="card">
-          <h3>Start a conversation</h3>
-          <p class="muted">Email: <a href="mailto:info@orizis-international.com">info@orizis-international.com</a><br/>Phone: <a href="tel:+000000000">+00 0000 0000</a></p>
-          <p class="muted">Prefer WhatsApp or Telegram? Add a note and we will follow up on your channel of choice.</p>
-        </div>
-        <div class="card">
-          <h3>What to include</h3>
-          <ul class="muted">
-            <li>Product and technical spec (or service type)</li>
-            <li>Target incoterms and volumes</li>
-            <li>Origin/destination and timelines</li>
-            <li>Financing instrument preference (LC/SBLC/escrow)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div>© <span id="year"></span> Orizis-International-, part of Orizis Group.</div>
-        <div>Trade responsibly. We comply with all applicable export controls and sanctions.</div>
-      </div>
-    </div>
-  </footer>
-
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
