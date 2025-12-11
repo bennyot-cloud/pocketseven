@@ -2,303 +2,1534 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PocketSeven | Home Game Poker App</title>
+  <title>PocketSeven | Play Poker With Your Crew</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="PocketSeven is a private poker app for home games, clubs and leagues. Play Texas Hold’em, Omaha and tournaments with friends." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet" />
-
+  <meta name="description" content="PocketSeven is the home game poker app for friends, clubs and leagues. Create private tables, track results and play your favorite poker games anytime." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #060608;
-      --bg-dark: #0f0f12;
-      --gold: #f4c652;
-      --gold-soft: rgba(244, 198, 82, 0.16);
-      --text: #ffffff;
-      --text-muted: #a8a8b5;
-      --radius: 20px;
-      --shadow: 0 20px 60px rgba(0,0,0,0.8);
+      --bg-dark: #050816;
+      --bg-darker: #02040a;
+      --accent: #f5c451;
+      --accent-soft: rgba(245, 196, 81, 0.12);
+      --text-main: #f5f5f7;
+      --text-muted: #9da3b5;
+      --card-bg: #0a1020;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --danger: #ff4f6b;
+      --success: #3dd68c;
+      --gradient-1: radial-gradient(circle at top left, #f5c451 0, transparent 55%);
+      --gradient-2: radial-gradient(circle at bottom right, #3dd68c 0, transparent 55%);
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.7);
+      --radius-lg: 22px;
+      --radius-xl: 30px;
+      --transition-fast: 0.2s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      background: radial-gradient(circle at top, #3b0d12 0, #060608 50%, #000 100%);
-      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    img { max-width: 100%; display: block; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: var(--gradient-1), var(--gradient-2);
+      background-repeat: no-repeat;
+      background-size: 600px 600px, 600px 600px;
+      background-position: -150px -150px, 110% 120%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
 
     header {
       position: sticky;
       top: 0;
-      backdrop-filter: blur(8px);
-      background: rgba(0,0,0,0.7);
-      padding: 12px 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
       z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.5), transparent);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
     }
 
     .nav {
-      max-width: 1150px;
-      margin: auto;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
+      padding: 0.9rem 0;
     }
 
-    .logo {
+    .logo-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 0.6rem;
     }
 
-    .logo img {
-      height: 42px;
-      border-radius: 6px;
+    .logo-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: conic-gradient(from 210deg, #f5c451, #ff4f6b, #3b82f6, #3dd68c, #f5c451);
+      padding: 2px;
+      box-shadow: 0 0 25px rgba(245, 196, 81, 0.7);
     }
 
-    .logo strong {
-      font-size: 1.2rem;
+    .logo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+      color: var(--accent);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .logo-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
       letter-spacing: 0.14em;
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      align-items: center;
+      gap: 1.3rem;
+      font-size: 0.9rem;
     }
 
     .nav-links a {
       color: var(--text-muted);
-      font-size: 0.9rem;
-      transition: 0.2s;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width var(--transition-fast);
     }
 
     .nav-links a:hover {
-      color: var(--gold);
+      color: var(--text-main);
     }
 
-    .section {
-      max-width: 1150px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-
-    /* TITLE WITH LOGO */
-    .title-wrap {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .title-wrap img {
-      height: 45px;
-      opacity: 0.9;
-      margin-bottom: 12px;
-    }
-
-    .title-wrap h2 {
-      font-size: 1.8rem;
-      margin: 0;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      font-size: 2.6rem;
-      font-weight: 800;
-    }
-
-    .hero-text span {
-      color: var(--gold);
-    }
-
-    .hero-banner {
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.07);
-    }
-
-    /* FEATURE CARDS */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 25px;
-    }
-
-    .card {
-      background: var(--bg-dark);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .card img {
+    .nav-links a:hover::after {
       width: 100%;
-      height: 160px;
-      object-fit: cover;
     }
 
-    .card h3 {
-      margin: 12px 0 5px 0;
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
 
-    .card-content {
-      padding: 18px;
-      font-size: 0.9rem;
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-main);
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f5c451, #ff8c3a);
+      color: #020617;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.7);
       color: var(--text-muted);
     }
 
-    /* TABLE SECTION */
-    .table-wrap {
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 3.5rem 0 1.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2.3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.7rem;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 12px rgba(61, 214, 140, 0.9);
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 3vw + 1.4rem, 3.4rem);
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title span {
+      background: radial-gradient(circle at 0 0, #f5c451, #ff4f6b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 420px;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      backdrop-filter: blur(10px);
+    }
+
+    .badge-pill span {
+      font-size: 0.65rem;
+      color: var(--accent);
+    }
+
+    .store-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.95);
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+      font-size: 0.8rem;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .store-btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.7);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .store-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 9px;
+      background: radial-gradient(circle at 30% 0, #f5c451, #ff4f6b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .store-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .store-text small {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    .store-text strong {
+      font-size: 0.8rem;
+    }
+
+    .hero-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-note span {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-visual {
       position: relative;
-      border-radius: var(--radius);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #111827, #020617 56%);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 1.4rem 1.2rem;
+      position: relative;
       overflow: hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .table-wrap img {
-      width: 100%;
-      border-radius: var(--radius);
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
     }
 
-    /* STAMP LOGO ON TABLE */
-    .logo-stamp {
+    .hero-card-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .hero-card-title span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card-title strong {
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+
+    .dealer-chip {
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.28rem;
+    }
+
+    .dealer-chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--danger);
+      box-shadow: 0 0 10px rgba(255, 79, 107, 0.8);
+    }
+
+    .hero-table {
+      margin-top: 0.8rem;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #16a34a, #022c22 60%, #020617 100%);
+      padding: 1.1rem 1.2rem 1.35rem;
+      position: relative;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+    }
+
+    .table-rim {
+      border-radius: inherit;
+      border: 2px solid rgba(248, 250, 252, 0.14);
+      padding: 0.9rem 0.9rem 1rem;
+      position: relative;
+    }
+
+    .pot-chip {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(0,0,0,0.6);
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.15);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -60%);
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #f5c451, #f97316, #f43f5e, #8b5cf6, #f5c451);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.8);
     }
 
-    .logo-stamp img {
+    .pot-chip-inner {
+      width: 76%;
+      height: 76%;
+      border-radius: 50%;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-align: center;
+      padding: 0.3rem;
+    }
+
+    .hero-players {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .player-pill {
+      flex: 1;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      padding: 0.45rem 0.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.08rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .player-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+    }
+
+    .player-name {
+      font-weight: 500;
+    }
+
+    .player-stack {
+      font-size: 0.68rem;
+      color: var(--accent);
+    }
+
+    .player-cards {
+      font-size: 0.75rem;
+    }
+
+    .player-position {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    .hero-float-tag {
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translate(40%, -50%);
+      border-radius: 18px;
+      padding: 0.55rem 0.85rem;
+      font-size: 0.7rem;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: var(--shadow-soft);
+      max-width: 170px;
+    }
+
+    .hero-float-tag strong {
+      color: var(--accent);
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .dot-small {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    /* Sections */
+
+    section {
+      padding: 2.5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0.25rem auto 0;
+    }
+
+    /* Features */
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.1rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: radial-gradient(circle at top left, rgba(245, 196, 81, 0.12), transparent 55%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      z-index: -1;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      width: 32px;
       height: 32px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-text {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    /* Games */
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-top: 1.2rem;
+    }
+
+    .game-pill {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .game-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 0, #f5c451, #f97316);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #020617;
+    }
+
+    .game-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.08rem;
+    }
+
+    .game-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .game-tagline {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Club section */
+
+    .club-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1.8rem;
+      align-items: center;
+      margin-top: 1.4rem;
+    }
+
+    .list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .list-bullet {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .club-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      padding: 1.2rem 1.1rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.86rem;
+    }
+
+    .club-card-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+    }
+
+    .club-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .club-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .club-tag {
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.72rem;
+      color: var(--accent);
+    }
+
+    .club-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.4rem;
+    }
+
+    .club-row span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .club-row strong {
+      font-size: 0.82rem;
+    }
+
+    .club-footer {
+      margin-top: 0.9rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* History */
+
+    .history-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1.6rem;
+      margin-top: 1.4rem;
+      align-items: center;
+    }
+
+    .history-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      padding: 1.1rem 1rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.8rem;
+    }
+
+    .history-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.45rem;
+    }
+
+    .history-label {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .history-total {
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .history-list {
+      margin-top: 0.5rem;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      overflow: hidden;
+    }
+
+    .history-row {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr 0.7fr 0.7fr;
+      padding: 0.4rem 0.7rem;
+      border-bottom: 1px solid rgba(30, 64, 175, 0.45);
+      align-items: center;
+    }
+
+    .history-row:last-child {
+      border-bottom: none;
+    }
+
+    .history-row span {
+      font-size: 0.76rem;
+    }
+
+    .history-row span:nth-child(3) {
+      text-align: right;
+      color: var(--success);
+      font-weight: 500;
+    }
+
+    .history-row span:nth-child(4) {
+      text-align: right;
+      color: var(--danger);
       opacity: 0.9;
     }
 
+    .history-tagline {
+      margin-top: 0.7rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Testimonials */
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+      margin-top: 1.4rem;
+    }
+
+    .quote-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-card::before {
+      content: "“";
+      position: absolute;
+      top: -18px;
+      right: 16px;
+      font-size: 5rem;
+      color: rgba(148, 163, 184, 0.1);
+    }
+
+    .quote-text {
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .quote-source {
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    .quote-source span {
+      color: var(--accent);
+    }
+
+    /* CTA */
+
+    .cta {
+      padding: 3rem 0 3.5rem;
+    }
+
+    .cta-card {
+      border-radius: 999px;
+      background: radial-gradient(circle at 0 0, #f5c451, #f97316);
+      padding: 1.4rem 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      color: #020617;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .cta-text {
+      max-width: 420px;
+    }
+
+    .cta-text h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .cta-text p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .btn-cta {
+      background: #020617;
+      color: #f9fafb;
+      border-radius: 999px;
+      padding: 0.5rem 1.1rem;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: none;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .btn-cta.secondary {
+      background: rgba(15, 23, 42, 0.12);
+      color: #020617;
+      border: 1px solid rgba(15, 23, 42, 0.3);
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.6);
+      background: #020617;
+      color: #f9fafb;
+    }
+
+    /* Footer */
+
     footer {
-      margin-top: 70px;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding: 25px 20px;
-      text-align: center;
-      background: rgba(0,0,0,0.4);
+      padding: 1.5rem 0 1.8rem;
+      border-top: 1px solid rgba(30, 64, 175, 0.7);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.95));
+      margin-top: auto;
     }
 
-    footer img {
-      height: 40px;
-      opacity: 0.85;
-      margin-bottom: 8px;
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
     }
 
-    @media(max-width: 900px){
-      .hero { grid-template-columns: 1fr; }
-      .grid-3 { grid-template-columns: 1fr; }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
     }
 
+    .footer-links a {
+      color: var(--text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--text-main);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .social-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .club-layout,
+      .history-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .hero {
+        padding-top: 2.1rem;
+      }
+
+      .cta-card {
+        border-radius: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid {
+        gap: 1.8rem;
+      }
+
+      .features-grid,
+      .games-grid,
+      .testimonials-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-card {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.1rem;
+      }
+
+      .hero-card {
+        border-radius: 22px;
+      }
+
+      .footer-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
-
-<header>
-  <div class="nav">
-    <div class="logo">
-      <img src="logo.jpeg" alt="PocketSeven logo">
-      <strong>POCKET SEVEN</strong>
-    </div>
-
-    <div class="nav-links">
-      <a href="#games">Games</a>
-      <a href="#club">Club</a>
-      <a href="#table">Table</a>
-    </div>
-  </div>
-</header>
-
-<div class="section hero">
-  <div class="hero-text">
-    <h1>Play <span>PocketSeven</span> Poker<br>Anytime. Anywhere.</h1>
-    <p>The private home-game poker app. Create clubs, run tables, invite friends and track everything.</p>
-  </div>
-
-  <div class="hero-banner">
-    <img src="games.jpeg" alt="Games preview">
-  </div>
-</div>
-
-<div class="section" id="games">
-  <div class="title-wrap">
-    <img src="logo.jpeg" alt="section logo">
-    <h2>Game Modes</h2>
-  </div>
-
-  <div class="grid-3">
-    <div class="card">
-      <img src="games.jpeg">
-      <div class="card-content">
-        <h3>Texas Hold’em</h3>
-        Enjoy classic No-Limit Hold’em games with your crew.
+  <div class="page">
+    <header>
+      <div class="container nav">
+        <div class="logo-wrap">
+          <div class="logo-icon">
+            <div class="logo-inner">P7</div>
+          </div>
+          <div class="logo-text">
+            <div class="logo-title">PocketSeven</div>
+            <div class="logo-sub">Friends First Poker</div>
+          </div>
+        </div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#features">Features</a>
+          <a href="#games">Games</a>
+          <a href="#club">Clubs</a>
+          <a href="#history">Stats</a>
+          <a href="#download">Download</a>
+        </nav>
+        <div class="nav-cta">
+          <a href="#download" class="btn btn-ghost">Get the app</a>
+          <a href="#download" class="btn btn-primary">Play now</a>
+        </div>
       </div>
-    </div>
+    </header>
 
-    <div class="card">
-      <img src="club.jpeg">
-      <div class="card-content">
-        <h3>Clubs & Home Games</h3>
-        Build private groups with full control over players and tables.
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              LIVE HOME GAMES, ONLINE
+            </div>
+            <h1 class="hero-title">
+              Host real poker nights<br />
+              with <span>PocketSeven</span>
+            </h1>
+            <p class="hero-subtitle">
+              Turn any group of friends into a private poker club. Create tables in seconds, invite players with a code and keep every hand recorded, all in one place.
+            </p>
+
+            <div class="hero-badges">
+              <div class="badge-pill"><span>●</span> Designed for home games</div>
+              <div class="badge-pill">Clubs, leagues and casual nights</div>
+              <div class="badge-pill">No table, no chips, no problem</div>
+            </div>
+
+            <div id="download" class="store-buttons">
+              <a class="store-btn" href="#"
+                 aria-label="Download PocketSeven on the App Store">
+                <div class="store-icon"></div>
+                <div class="store-text">
+                  <small>Download on</small>
+                  <strong>App Store</strong>
+                </div>
+              </a>
+              <a class="store-btn" href="#"
+                 aria-label="Get PocketSeven on Google Play">
+                <div class="store-icon">▶</div>
+                <div class="store-text">
+                  <small>Get it on</small>
+                  <strong>Google Play</strong>
+                </div>
+              </a>
+            </div>
+
+            <p class="hero-note">
+              Free to get started. <span>No physical chips required.</span>
+            </p>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <div class="hero-card-title">
+                  <span>Live table</span>
+                  <strong>Friends Friday Night</strong>
+                </div>
+                <div class="dealer-chip">
+                  <span class="dealer-chip-dot"></span>
+                  Dealer online
+                </div>
+              </div>
+
+              <div class="hero-table">
+                <div class="table-rim">
+                  <div class="pot-chip">
+                    <div class="pot-chip-inner">
+                      Pot<br />
+                      138 BB
+                    </div>
+                  </div>
+
+                  <div class="hero-players">
+                    <div class="player-pill">
+                      <div class="player-top">
+                        <span class="player-name">Ben</span>
+                        <span class="player-stack">156 BB</span>
+                      </div>
+                      <span class="player-cards">A♠ K♠</span>
+                      <span class="player-position">Button</span>
+                    </div>
+                    <div class="player-pill">
+                      <div class="player-top">
+                        <span class="player-name">Lior</span>
+                        <span class="player-stack">74 BB</span>
+                      </div>
+                      <span class="player-cards">9♥ 9♦</span>
+                      <span class="player-position">Small blind</span>
+                    </div>
+                    <div class="player-pill">
+                      <div class="player-top">
+                        <span class="player-name">Maya</span>
+                        <span class="player-stack">201 BB</span>
+                      </div>
+                      <span class="player-cards">Q♣ J♣</span>
+                      <span class="player-position">Big blind</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-float-tag">
+                <strong>Instant home table</strong><br />
+                Share one code, everyone joins with their phone. No chips to count at the end of the night.
+              </div>
+
+              <div class="hero-meta">
+                <span><span class="dot-small"></span> 6 players connected</span>
+                <span>Blinds 1 / 2 • NL Hold’em</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Why PocketSeven</div>
+            <h2 class="section-title">Poker nights that actually feel like poker</h2>
+            <p class="section-subtitle">
+              A simple app for serious or casual home games. Easy to set up, smooth to play and built to keep your group coming back every week.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div class="card">
+              <div class="card-icon">🎲</div>
+              <h3 class="card-title">Create tables in seconds</h3>
+              <p class="card-text">
+                Open a new table, set blinds, buy in and seat your friends with one shareable code. No lobby confusion or complicated menus.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-icon">🤝</div>
+              <h3 class="card-title">Private by default</h3>
+              <p class="card-text">
+                Your games are for your group only. Run micro stakes fun games or structured club nights without random players sitting in.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-icon">📱</div>
+              <h3 class="card-title">Gestures that feel natural</h3>
+              <p class="card-text">
+                Flick to fold, tap to call, slide to raise. Designed so that playing on your phone still feels like being around the same table.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Games -->
+      <section id="games">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Games inside PocketSeven</div>
+            <h2 class="section-title">Your favorite formats, one lobby</h2>
+            <p class="section-subtitle">
+              Run classic cash games or build a full night of tournaments. Mix formats to match your group and keep poker night interesting.
+            </p>
+          </div>
+
+          <div class="games-grid">
+            <div class="game-pill">
+              <div class="game-icon">H</div>
+              <div class="game-info">
+                <span class="game-name">Texas Hold’em</span>
+                <span class="game-tagline">The standard for home games and clubs.</span>
+              </div>
+            </div>
+            <div class="game-pill">
+              <div class="game-icon">O</div>
+              <div class="game-info">
+                <span class="game-name">Omaha</span>
+                <span class="game-tagline">Four cards, big pots and bigger swings.</span>
+              </div>
+            </div>
+            <div class="game-pill">
+              <div class="game-icon">S7</div>
+              <div class="game-info">
+                <span class="game-name">Seven Card Stud</span>
+                <span class="game-tagline">Old school poker for purists.</span>
+              </div>
+            </div>
+            <div class="game-pill">
+              <div class="game-icon">SD</div>
+              <div class="game-info">
+                <span class="game-name">Short Deck</span>
+                <span class="game-tagline">Action heavy deck for modern games.</span>
+              </div>
+            </div>
+            <div class="game-pill">
+              <div class="game-icon">MT</div>
+              <div class="game-info">
+                <span class="game-name">Multi table events</span>
+                <span class="game-tagline">Run club series or a one time big event.</span>
+              </div>
+            </div>
+            <div class="game-pill">
+              <div class="game-icon">B</div>
+              <div class="game-info">
+                <span class="game-name">Blackjack side tables</span>
+                <span class="game-tagline">Fill time while you wait for the next seat.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Club -->
+      <section id="club">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Your own space</div>
+            <h2 class="section-title">Build a private poker club</h2>
+            <p class="section-subtitle">
+              PocketSeven makes it simple to manage a group, collect results and keep the same crew playing together week after week.
+            </p>
+          </div>
+
+          <div class="club-layout">
+            <ul class="list">
+              <li class="list-item">
+                <div class="list-bullet">1</div>
+                <div>
+                  <strong>Name your club.</strong><br />
+                  Create a home for your group with its own logo, color and invite link. Perfect for local clubs and remote leagues.
+                </div>
+              </li>
+              <li class="list-item">
+                <div class="list-bullet">2</div>
+                <div>
+                  <strong>Invite your players.</strong><br />
+                  Share a secure code instead of sending chip counts in group chats. Everyone joins from their phone in a single tap.
+                </div>
+              </li>
+              <li class="list-item">
+                <div class="list-bullet">3</div>
+                <div>
+                  <strong>Run and repeat.</strong><br />
+                  Save your favorite structures and recreate them instantly for future nights, with full history kept for every member.
+                </div>
+              </li>
+            </ul>
+
+            <div class="club-card">
+              <div class="club-card-header">
+                <div>
+                  <div class="club-label">Club overview</div>
+                  <div class="club-name">PocketSeven Tel Aviv</div>
+                </div>
+                <div class="club-tag">Weekly Friday league</div>
+              </div>
+
+              <div class="club-row">
+                <span>Registered players</span>
+                <strong>42</strong>
+              </div>
+              <div class="club-row">
+                <span>Games played this month</span>
+                <strong>18</strong>
+              </div>
+              <div class="club-row">
+                <span>Total hands tracked</span>
+                <strong>12,947</strong>
+              </div>
+              <div class="club-row">
+                <span>Longest running streak</span>
+                <strong>14 weeks</strong>
+              </div>
+
+              <div class="club-footer">
+                Keep every club game organized, without spreadsheets or manual notes at the end of the night.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- History / Stats -->
+      <section id="history">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Stats that matter</div>
+            <h2 class="section-title">Hand history and results, always with you</h2>
+            <p class="section-subtitle">
+              Every session in PocketSeven is saved with results, stacks and winners. See who is really up over time and replay memorable hands later.
+            </p>
+          </div>
+
+          <div class="history-layout">
+            <div class="history-card">
+              <div class="history-header">
+                <span class="history-label">Recent sessions</span>
+                <span class="history-total">Total profit last 30 days: +224 BB</span>
+              </div>
+
+              <div class="history-list">
+                <div class="history-row">
+                  <span>Friday home game</span>
+                  <span>NL Hold’em</span>
+                  <span>+118 BB</span>
+                  <span></span>
+                </div>
+                <div class="history-row">
+                  <span>Monday Omaha deep stack</span>
+                  <span>PLO</span>
+                  <span>+86 BB</span>
+                  <span></span>
+                </div>
+                <div class="history-row">
+                  <span>Sunday quick sit and go</span>
+                  <span>MTT</span>
+                  <span></span>
+                  <span>-40 BB</span>
+                </div>
+              </div>
+
+              <p class="history-tagline">
+                Filter by player, game or date to see long term performance and settle up without arguments.
+              </p>
+            </div>
+
+            <div>
+              <ul class="list">
+                <li class="list-item">
+                  <div class="list-bullet">✓</div>
+                  <div>
+                    <strong>Automatic tracking.</strong><br />
+                    No more notes on napkins. PocketSeven stores your game results across all tables and all nights.
+                  </div>
+                </li>
+                <li class="list-item">
+                  <div class="list-bullet">✓</div>
+                  <div>
+                    <strong>Share standout hands.</strong><br />
+                    Capture a single hand with board, hole cards and pot size, then send it straight to your group chat.
+                  </div>
+                </li>
+                <li class="list-item">
+                  <div class="list-bullet">✓</div>
+                  <div>
+                    <strong>Stay in control.</strong><br />
+                    As a host you decide who can see which stats. Keep things open for transparency or private for low pressure games.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">What players say</div>
+            <h2 class="section-title">Home game hosts love PocketSeven</h2>
+            <p class="section-subtitle">
+              Built with feedback from hosts that run weekly games, club series and friendly low stakes tables.
+            </p>
+          </div>
+
+          <div class="testimonials-grid">
+            <div class="quote-card">
+              <p class="quote-text">
+                Our Friday night game moved to PocketSeven and never looked back. It feels like sitting together even when half the group is traveling.
+              </p>
+              <div class="quote-source">
+                Adam K. <span>Home game host</span>
+              </div>
+            </div>
+            <div class="quote-card">
+              <p class="quote-text">
+                Keeping track of who is winning and losing used to be a mess. Now the app does it for us and there is nothing to argue about at the end.
+              </p>
+              <div class="quote-source">
+                Sarah P. <span>Local club organizer</span>
+              </div>
+            </div>
+            <div class="quote-card">
+              <p class="quote-text">
+                We run a casual league for friends from three different cities. PocketSeven makes it feel like one regular table that everyone knows.
+              </p>
+              <div class="quote-source">
+                Leo R. <span>League commissioner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="container">
+          <div class="cta-card">
+            <div class="cta-text">
+              <h2>Ready to host your next poker night?</h2>
+              <p>
+                Download PocketSeven and set up your first table in under a minute. Share the code with your friends and start dealing from anywhere.
+              </p>
+            </div>
+            <div class="cta-actions">
+              <a href="#download" class="btn-cta">Download for free</a>
+              <a href="mailto:support@pocketseven.app" class="btn-cta secondary">Talk to us about clubs</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-row">
+        <div>© <span id="year"></span> PocketSeven. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Support</a>
+        </div>
+        <div class="footer-social">
+          <div class="social-dot">f</div>
+          <div class="social-dot">ig</div>
+          <div class="social-dot">X</div>
+        </div>
       </div>
-    </div>
-
-    <div class="card">
-      <img src="games.jpeg">
-      <div class="card-content">
-        <h3>Tournaments</h3>
-        Create SNG or MTT events with automated blinds and structure.
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="section" id="club">
-  <div class="title-wrap">
-    <img src="logo.jpeg" alt="PocketSeven logo section">
-    <h2>Your Poker Club</h2>
+    </footer>
   </div>
 
-  <div class="card">
-    <img src="club.jpeg">
-    <div class="card-content">
-      Create and manage your own poker club. Invite players, schedule events, and track results.
-    </div>
-  </div>
-</div>
-
-<div class="section" id="table">
-  <div class="title-wrap">
-    <img src="logo.jpeg">
-    <h2>The Table Experience</h2>
-  </div>
-
-  <div class="table-wrap">
-    <img src="table.jpeg" alt="Poker table">
-
-    <div class="logo-stamp">
-      <img src="logo.jpeg" alt="">
-    </div>
-  </div>
-</div>
-
-<footer>
-  <img src="logo.jpeg" alt="footer logo">
-  <p>© 2025 PocketSeven. All rights reserved.</p>
-</footer>
-
+  <script>
+    // Update year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
